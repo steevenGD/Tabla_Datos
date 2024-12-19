@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario y Resumen</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Formulario</h1>
+    <form id="dataForm">
+        <label>Nombre:</label><br>
+        <input type="text" id="name"><br><br>
+
+        <label>Edad:</label><br>
+        <input type="number" id="age"><br><br>
+
+        <label>Lugar de trabajo:</label><br>
+        <input type="text" id="workplace"><br><br>
+
+        <button type="button" onclick="generateTable()">Enviar</button>
+    </form>
+
+    <h2>Resumen</h2>
+    <table id="summaryTable">
+        <tr>
+            <th>Campo</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td id="nameValue"></td>
+        </tr>
+        <tr>
+            <td>Edad</td>
+            <td id="ageValue"></td>
+        </tr>
+        <tr>
+            <td>Lugar de trabajo</td>
+            <td id="workplaceValue"></td>
+        </tr>
+    </table>
+
+    <script>
+        function generateTable() {
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var workplace = document.getElementById('workplace').value;
+
+            if (name && age && workplace) {
+                document.getElementById('nameValue').innerText = name;
+                document.getElementById('ageValue').innerText = age;
+                document.getElementById('workplaceValue').innerText = workplace;
+                document.getElementById('summaryTable').style.display = 'table';
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        }
+    </script>
+</body>
+</html>
